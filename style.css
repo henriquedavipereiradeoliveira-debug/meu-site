@@ -5,129 +5,158 @@
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
-/* Fundo da página com gradiente escuro e moderno */
 body {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  background-color: #f8fafc;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  padding: 20px;
 }
 
-/* Card Principal em tom Azul Escuro Elegante */
-.card-login {
-  background: #1e1b4b; /* Tom azul-índigo profundo */
-  width: 100%;
-  max-width: 380px;
-  padding: 40px 32px;
-  border-radius: 16px;
+.main-container {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  align-items: center;
+  width: 100%;
+  max-width: 380px;
+}
+
+/* Logótipo */
+.logo-container {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.logo-title {
+  color: #0B1E36;
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1;
+}
+
+.logo-subtitle {
+  color: #E65100;
+  font-size: 20px;
+  font-weight: 600;
+  display: block;
+  margin-top: 2px;
+}
+
+/* Card Principal */
+.card-login {
+  background-color: #ffffff;
+  width: 100%;
+  padding: 36px 28px;
+  border-radius: 28px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f1f5f9;
 }
 
 .card-login h2 {
-  color: #ffffff;
-  font-size: 24px;
+  color: #0B1E36;
+  font-size: 22px;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 8px;
+  margin-bottom: 28px;
 }
 
 .group {
-  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
+  margin-bottom: 20px;
 }
 
 label {
-  color: #cbd5e1;
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
+  color: #0B1E36;
+  font-size: 13px;
+  font-weight: 700;
   letter-spacing: 0.5px;
 }
 
-/* Container para borda animada */
-.input-box-animado {
+/* Caixa com Ícone e Campo de Texto */
+.input-wrapper {
   position: relative;
-  width: 100%;
-  height: 48px;
-  border-radius: 10px;
-  padding: 2px; /* Largura da borda animada */
-  overflow: hidden;
   display: flex;
   align-items: center;
-}
-
-.input-box-animado::before {
-  content: '';
-  position: absolute;
-  width: 150%;
-  height: 500%;
-  animation: girarBorda 3s linear infinite;
-}
-
-/* Cores das bordas animadas */
-.borda-amarela::before {
-  background: conic-gradient(#f59e0b, transparent 30%, transparent 70%, #f59e0b);
-}
-
-.borda-vermelha::before {
-  background: conic-gradient(#ef4444, transparent 30%, transparent 70%, #ef4444);
-}
-
-/* Input interno */
-.input-box-animado input {
-  position: relative;
   width: 100%;
-  height: 100%;
-  border: none;
-  outline: none;
-  background-color: #0f172a; /* Fundo interno escuro */
-  color: #ffffff;
-  border-radius: 8px;
-  padding: 0 14px;
+}
+
+.input-wrapper input {
+  width: 100%;
+  height: 50px;
+  background-color: #f1f3f6;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 0 42px;
   font-size: 15px;
-  z-index: 1;
+  color: #334155;
+  outline: none;
+  transition: all 0.2s ease;
 }
 
-.input-box-animado input::placeholder {
-  color: #64748b;
+.input-wrapper input::placeholder {
+  color: #94a3b8;
 }
 
-/* Botão Entrar */
+.input-wrapper input:focus {
+  background-color: #ffffff;
+  border-color: #FF6600;
+}
+
+/* Estilo dos Ícones internos */
+.icon-left {
+  position: absolute;
+  left: 14px;
+  color: #94a3b8;
+  font-size: 16px;
+}
+
+.icon-right {
+  position: absolute;
+  right: 14px;
+  color: #94a3b8;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Botão Laranja */
 .btn-entrar {
   width: 100%;
-  height: 48px;
-  margin-top: 10px;
-  background-color: #6366f1;
-  color: white;
+  height: 50px;
+  background-color: #FF6600;
+  color: #ffffff;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
+  margin-top: 8px;
+  box-shadow: 0 4px 12px rgba(255, 102, 0, 0.25);
   transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 .btn-entrar:hover {
-  background-color: #4f46e5;
+  background-color: #e65c00;
 }
 
 .btn-entrar:active {
   transform: scale(0.98);
 }
 
-/* Animação da borda giratória */
-@keyframes girarBorda {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+/* Ligação "Esqueceu sua senha?" */
+.forgot-password {
+  display: block;
+  text-align: center;
+  margin-top: 24px;
+  color: #E65100;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
 }
