@@ -1,21 +1,38 @@
-<html>
-    <head>
-        <link rel="stylesheet" href="style.css">
-        
-    </head>
-    <body>
-        <h1>...........Login............</h1>
-        <div>
-            <h2 class="Gmail">Gmail</h2>
-        <input type="text" class="nome" id="senha" name="senha">
-        </div>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Profissional</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Fonte moderna via Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
 
+  <div class="card-login">
+    <h2>Acesse sua conta</h2>
 
-         <div>
-            <h2 class="Senha">Senha</h2>
-        <input type="text" class="senha" id="senha" name="senha">
-        </div>
+    <!-- Campo Gmail -->
+    <div class="group">
+      <label for="gmail">E-mail</label>
+      <div class="input-box-animado borda-amarela">
+        <input type="email" id="gmail" placeholder="seu.email@exemplo.com" autocomplete="off">
+      </div>
+    </div>
 
+    <!-- Campo Senha -->
+    <div class="group">
+      <label for="senha">Senha</label>
+      <div class="input-box-animado borda-vermelha">
+        <input type="password" id="senha" placeholder="••••••••">
+      </div>
+    </div>
 
-    </body>
+    <button type="submit" class="btn-entrar">Entrar</button>
+  </div>
+
+</body>
 </html>
