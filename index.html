@@ -1,59 +1,69 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <script type="meu_codego.py"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AchaFácil - Acesse sua conta</title>
+  <title>AchaFácil - Login</title>
   <link rel="stylesheet" href="style.css">
-  <!-- Fonte moderna Inter do Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <!-- Ícones via FontAwesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Ícones da biblioteca Lucide -->
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
-  <div class="main-container">
-    <!-- Logótipo da marca -->
-    <div class="logo-container">
+  <div class="container">
+    <!-- Cabeçalho com Logo -->
+    <header class="logo-container">
       <h1 class="logo-title">AchaFácil</h1>
       <span class="logo-subtitle">FindHub</span>
-    </div>
+    </header>
 
     <!-- Card de Login -->
-    <div class="card-login">
-      <h2>Acesse sua conta</h2>
+    <main class="card">
+      <h2 class="card-title">Acesse sua conta</h2>
 
-      <form>
-        <!-- Campo E-mail -->
-        <div class="group">
-          <label for="gmail">E-MAIL</label>
+      <form id="loginForm">
+        <!-- Campo de E-mail -->
+        <div class="form-group">
+          <label for="email" class="form-label">E-MAIL</label>
           <div class="input-wrapper">
-            <i class="fa-regular fa-envelope icon-left"></i>
-            <input type="email" id="gmail" placeholder="seu.email@exemplo.com" required>
+            <i data-lucide="mail" class="input-icon"></i>
+            <input 
+              type="email" 
+              id="email" 
+              class="form-input" 
+              placeholder="seu.email@exemplo.com" 
+              required
+            >
           </div>
         </div>
 
-        <!-- Campo Senha -->
-        <div class="group">
-          <label for="senha">SENHA</label>
+        <!-- Campo de Senha -->
+        <div class="form-group">
+          <label for="senha" class="form-label">SENHA</label>
           <div class="input-wrapper">
-            <i class="fa-solid fa-lock icon-left"></i>
-            <input type="password" id="senha" placeholder="••••••••" required>
-            <i class="fa-regular fa-eye icon-right"></i>
+            <i data-lucide="lock" class="input-icon"></i>
+            <input 
+              type="password" 
+              id="senha" 
+              class="form-input" 
+              placeholder="••••••••" 
+              required
+            >
+            <button type="button" class="toggle-password" id="togglePasswordBtn" aria-label="Mostrar/ocultar senha">
+              <i data-lucide="eye" id="eyeIcon"></i>
+            </button>
           </div>
         </div>
 
-        <!-- Botão Entrar -->
-        <button type="submit" class="btn-entrar">Entrar</button>
-
-        <!-- Link Esqueceu a Senha -->
-        <a href="#" class="forgot-password">Esqueceu sua senha?</a>
+        <!-- Botão de Envio -->
+        <button type="submit" class="btn-primary">Entrar</button>
       </form>
-    </div>
+
+      <!-- Link Esqueceu sua senha -->
+      <a href="#" class="forgot-password">Esqueceu sua senha?</a>
+    </main>
   </div>
 
+  <script src="script.js"></script>
 </body>
 </html>
