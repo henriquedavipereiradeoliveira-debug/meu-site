@@ -1,162 +1,187 @@
+/* Importação da fonte Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 body {
-  background-color: #f8fafc;
+  background-color: #f4f6f8;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
   padding: 20px;
 }
 
-.main-container {
+.container {
+  width: 100%;
+  max-width: 440px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  max-width: 380px;
 }
 
-/* Logótipo */
+/* Identidade Visual / Header */
 .logo-container {
   text-align: center;
   margin-bottom: 24px;
 }
 
 .logo-title {
-  color: #0B1E36;
-  font-size: 36px;
+  color: #0d233a;
+  font-size: 2.3rem;
   font-weight: 800;
   letter-spacing: -0.5px;
-  line-height: 1;
+  line-height: 1.1;
 }
 
 .logo-subtitle {
-  color: #E65100;
-  font-size: 20px;
-  font-weight: 600;
+  color: #f55a00;
+  font-size: 1.05rem;
+  font-weight: 700;
   display: block;
   margin-top: 2px;
 }
 
 /* Card Principal */
-.card-login {
+.card {
   background-color: #ffffff;
   width: 100%;
-  padding: 36px 28px;
   border-radius: 28px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  border: 1px solid #f1f5f9;
+  padding: 40px 32px 32px 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
 }
 
-.card-login h2 {
-  color: #0B1E36;
-  font-size: 22px;
+.card-title {
+  color: #0d233a;
+  font-size: 1.45rem;
   font-weight: 700;
   text-align: center;
   margin-bottom: 28px;
 }
 
-.group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+/* Form Structural Styling */
+.form-group {
   margin-bottom: 20px;
 }
 
-label {
-  color: #0B1E36;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
+.form-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #1a2a3a;
+  letter-spacing: 0.6px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
 }
 
-/* Caixa com Ícone e Campo de Texto */
 .input-wrapper {
   position: relative;
   display: flex;
   align-items: center;
-  width: 100%;
 }
 
-.input-wrapper input {
+.input-icon {
+  position: absolute;
+  left: 14px;
+  width: 18px;
+  height: 18px;
+  color: #9aa8b6;
+  pointer-events: none;
+}
+
+.form-input {
   width: 100%;
-  height: 50px;
-  background-color: #f1f3f6;
-  border: 1px solid #e2e8f0;
+  height: 48px;
+  background-color: #f0f3f6;
+  border: 1px solid transparent;
   border-radius: 12px;
-  padding: 0 42px;
-  font-size: 15px;
+  padding: 0 42px 0 42px;
+  font-size: 0.92rem;
   color: #334155;
   outline: none;
   transition: all 0.2s ease;
 }
 
-.input-wrapper input::placeholder {
-  color: #94a3b8;
+.form-input::placeholder {
+  color: #a0aec0;
 }
 
-.input-wrapper input:focus {
+.form-input:focus {
+  border-color: #f55a00;
   background-color: #ffffff;
-  border-color: #FF6600;
+  box-shadow: 0 0 0 3px rgba(245, 90, 0, 0.12);
 }
 
-/* Estilo dos Ícones internos */
-.icon-left {
-  position: absolute;
-  left: 14px;
-  color: #94a3b8;
-  font-size: 16px;
-}
-
-.icon-right {
+/* Botão de Ver Senha */
+.toggle-password {
   position: absolute;
   right: 14px;
-  color: #94a3b8;
-  font-size: 16px;
+  background: none;
+  border: none;
+  color: #9aa8b6;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: color 0.2s;
 }
 
-/* Botão Laranja */
-.btn-entrar {
+.toggle-password:hover {
+  color: #4a5568;
+}
+
+.toggle-password svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Botão Principal */
+.btn-primary {
   width: 100%;
-  height: 50px;
-  background-color: #FF6600;
+  height: 52px;
+  background-color: #ff5e00;
   color: #ffffff;
   border: none;
-  border-radius: 12px;
-  font-size: 16px;
+  border-radius: 14px;
+  font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
-  margin-top: 8px;
-  box-shadow: 0 4px 12px rgba(255, 102, 0, 0.25);
-  transition: background-color 0.2s ease, transform 0.1s ease;
+  margin-top: 10px;
+  box-shadow: 0 4px 12px rgba(255, 94, 0, 0.25);
+  transition: all 0.2s ease;
 }
 
-.btn-entrar:hover {
-  background-color: #e65c00;
+.btn-primary:hover {
+  background-color: #e05200;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(255, 94, 0, 0.35);
 }
 
-.btn-entrar:active {
-  transform: scale(0.98);
+.btn-primary:active {
+  transform: translateY(0);
 }
 
-/* Ligação "Esqueceu sua senha?" */
+/* Link de Esqueceu a Senha */
 .forgot-password {
   display: block;
   text-align: center;
   margin-top: 24px;
-  color: #E65100;
-  font-size: 14px;
-  font-weight: 600;
+  color: #ff5e00;
+  font-size: 0.9rem;
+  font-weight: 700;
   text-decoration: none;
+  transition: opacity 0.2s;
 }
 
 .forgot-password:hover {
   text-decoration: underline;
+  opacity: 0.9;
 }
