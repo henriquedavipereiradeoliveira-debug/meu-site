@@ -1,35 +1,21 @@
-// Inicializa os ícones da biblioteca Lucide
-lucide.createIcons();
+// Função principal para trocar de telas
+function navigateTo(screenId) {
+  // Oculta todas as telas
+  const screens = document.querySelectorAll('.screen');
+  screens.forEach(screen => {
+    screen.classList.remove('active');
+  });
 
-// Elementos da página
-const loginForm = document.getElementById('loginForm');
-const emailInput = document.getElementById('email');
-const senhaInput = document.getElementById('senha');
-const togglePasswordBtn = document.getElementById('togglePasswordBtn');
-const eyeIcon = document.getElementById('eyeIcon');
-
-// Alterna a visibilidade da senha (mostrar / ocultar)
-togglePasswordBtn.addEventListener('click', () => {
-  const isPassword = senhaInput.type === 'password';
-  senhaInput.type = isPassword ? 'text' : 'password';
-  
-  // Atualiza o ícone (olho aberto / olho fechado)
-  eyeIcon.setAttribute('data-lucide', isPassword ? 'eye-off' : 'eye');
-  lucide.createIcons();
-});
-
-// Evento de envio do formulário de login
-loginForm.addEventListener('submit', (e) => {
-  e.preventDefault(); // Impede o recarregamento da página
-
-  const emailValue = emailInput.value.trim();
-
-  if (emailValue) {
-    // 1. Salva os dados do usuário no localStorage
-    localStorage.setItem('usuarioEmail', emailValue);
-    localStorage.setItem('estaLogado', 'true');
-
-    // 2. Redireciona para a página interna/dashboard
-    window.location.href = 'dashboard.html';
+  // Exibe a tela de destino
+  const targetScreen = document.getElementById(screenId);
+  if (targetScreen) {
+    targetScreen.classList.add('active');
+    // Rola para o topo ao trocar de tela
+    window.scrollTo(0, 0);
   }
-});
+}
+
+// Função simples para alternar seleção de interesses/chips
+function toggleChip(element) {
+  element.classList.toggle('selected');
+}
