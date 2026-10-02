@@ -1,187 +1,289 @@
-/* Importação da fonte Inter */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
   background-color: #f4f6f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
 }
 
-.container {
+/* Simula a tela do celular */
+.app-container {
   width: 100%;
-  max-width: 440px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Identidade Visual / Header */
-.logo-container {
-  text-align: center;
-  margin-bottom: 24px;
-}
-
-.logo-title {
-  color: #0d233a;
-  font-size: 2.3rem;
-  font-weight: 800;
-  letter-spacing: -0.5px;
-  line-height: 1.1;
-}
-
-.logo-subtitle {
-  color: #f55a00;
-  font-size: 1.05rem;
-  font-weight: 700;
-  display: block;
-  margin-top: 2px;
-}
-
-/* Card Principal */
-.card {
-  background-color: #ffffff;
-  width: 100%;
-  border-radius: 28px;
-  padding: 40px 32px 32px 32px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-  display: flex;
-  flex-direction: column;
-}
-
-.card-title {
-  color: #0d233a;
-  font-size: 1.45rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 28px;
-}
-
-/* Form Structural Styling */
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-label {
-  display: block;
-  font-size: 0.72rem;
-  font-weight: 800;
-  color: #1a2a3a;
-  letter-spacing: 0.6px;
-  margin-bottom: 8px;
-  text-transform: uppercase;
-}
-
-.input-wrapper {
+  max-width: 390px;
+  min-height: 844px;
+  background: #ffffff;
+  border-radius: 30px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  overflow: hidden;
   position: relative;
+  padding: 24px 20px;
+}
+
+/* Transição de Telas */
+.screen {
+  display: none;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.screen.active {
   display: flex;
-  align-items: center;
 }
 
-.input-icon {
-  position: absolute;
-  left: 14px;
-  width: 18px;
-  height: 18px;
-  color: #9aa8b6;
-  pointer-events: none;
-}
-
-.form-input {
-  width: 100%;
-  height: 48px;
-  background-color: #f0f3f6;
-  border: 1px solid transparent;
-  border-radius: 12px;
-  padding: 0 42px 0 42px;
-  font-size: 0.92rem;
-  color: #334155;
-  outline: none;
-  transition: all 0.2s ease;
-}
-
-.form-input::placeholder {
-  color: #a0aec0;
-}
-
-.form-input:focus {
-  border-color: #f55a00;
-  background-color: #ffffff;
-  box-shadow: 0 0 0 3px rgba(245, 90, 0, 0.12);
-}
-
-/* Botão de Ver Senha */
-.toggle-password {
-  position: absolute;
-  right: 14px;
-  background: none;
-  border: none;
-  color: #9aa8b6;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  transition: color 0.2s;
-}
-
-.toggle-password:hover {
-  color: #4a5568;
-}
-
-.toggle-password svg {
-  width: 18px;
-  height: 18px;
-}
-
-/* Botão Principal */
-.btn-primary {
-  width: 100%;
-  height: 52px;
-  background-color: #ff5e00;
-  color: #ffffff;
-  border: none;
-  border-radius: 14px;
-  font-size: 1rem;
-  font-weight: 700;
-  cursor: pointer;
-  margin-top: 10px;
-  box-shadow: 0 4px 12px rgba(255, 94, 0, 0.25);
-  transition: all 0.2s ease;
-}
-
-.btn-primary:hover {
-  background-color: #e05200;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(255, 94, 0, 0.35);
-}
-
-.btn-primary:active {
-  transform: translateY(0);
-}
-
-/* Link de Esqueceu a Senha */
-.forgot-password {
-  display: block;
+/* Tipografia e Elementos Compartilhados */
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #0b192c;
   text-align: center;
-  margin-top: 24px;
-  color: #ff5e00;
-  font-size: 0.9rem;
-  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+h2 {
+  font-size: 22px;
+  color: #0c1825;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #667085;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.input-group label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #344054;
+}
+
+.input-group input {
+  padding: 12px 14px;
+  border: 1px solid #d0d5dd;
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.form-options a, .footer-text a {
+  color: #ff5500;
   text-decoration: none;
+  font-weight: 600;
+}
+
+.btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
   transition: opacity 0.2s;
 }
 
-.forgot-password:hover {
-  text-decoration: underline;
-  opacity: 0.9;
+.btn-primary {
+  background-color: #ff5500;
+  color: white;
 }
+
+.btn-teal {
+  background-color: #00bba7;
+  color: white;
+}
+
+.divider {
+  text-align: center;
+  font-size: 12px;
+  color: #98a2b3;
+  margin: 10px 0;
+}
+
+.social-login {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-social {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #d0d5dd;
+  background: white;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.footer-text {
+  text-align: center;
+  font-size: 13px;
+  color: #475467;
+  margin-top: 10px;
+}
+
+.link-secondary {
+  display: block;
+  font-size: 12px;
+  color: #475467;
+  text-align: center;
+  margin-top: 6px;
+  text-decoration: underline;
+}
+
+/* Estilos de Interesses (Chips e Grid) */
+.chips-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.chip {
+  padding: 10px 16px;
+  border-radius: 20px;
+  border: 1px solid #d0d5dd;
+  background: #f9fafb;
+  cursor: pointer;
+}
+
+.chip.selected {
+  background: #00bba7;
+  color: white;
+  border-color: #00bba7;
+}
+
+.grid-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.card-option {
+  padding: 14px;
+  border: 1px solid #eaecf0;
+  border-radius: 12px;
+  background: #f9fafb;
+  text-align: center;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+/* Tela de Perfil */
+.profile-header {
+  text-align: center;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  background: #e0f2fe;
+  border-radius: 50%;
+  margin: 0 auto 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+}
+
+.stats-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.stat-card {
+  flex: 1;
+  background: #f8fafc;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.menu-list {
+  list-style: none;
+  margin: 10px 0;
+}
+
+.menu-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid #f1f5f9;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* Planos Parceiro */
+.top-nav {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.btn-back {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+}
+
+.plan-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 16px;
+  position: relative;
+}
+
+.plan-card.featured {
+  border: 2px solid #ff5500;
+}
+
+.badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: #e2e8f0;
+}
+
+.badge.orange {
+  background: #ff5500;
+  color: white;
+}
+
+.price {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.orange-text { color: #ff5500; }
+.navy-text { color: #0c1825; }
+.center { text-align: center; }
+.small-text { font-size: 11px; color: #64748b; }
