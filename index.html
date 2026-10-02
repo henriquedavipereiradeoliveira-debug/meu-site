@@ -1,69 +1,198 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AchaFácil - Login</title>
-  <link rel="stylesheet" href="style.css">
-  <!-- Ícones da biblioteca Lucide -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AchaFácil</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Ícones do Lucide ou FontAwesome para os inputs e botões -->
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
-  <div class="container">
-    <!-- Cabeçalho com Logo -->
-    <header class="logo-container">
-      <h1 class="logo-title">AchaFácil</h1>
-      <span class="logo-subtitle">FindHub</span>
-    </header>
+  <div class="app-container">
 
-    <!-- Card de Login -->
-    <main class="card">
-      <h2 class="card-title">Acesse sua conta</h2>
+    <!-- 1. TELA DE LOGIN -->
+    <section id="screen-login" class="screen active">
+      <div class="logo">🔍 <span>AchaFácil</span></div>
+      <h2>Bem-vindo de volta</h2>
+      <p class="subtitle">Acesse sua conta para continuar</p>
 
-      <form id="loginForm">
-        <!-- Campo de E-mail -->
-        <div class="form-group">
-          <label for="email" class="form-label">E-MAIL</label>
-          <div class="input-wrapper">
-            <i data-lucide="mail" class="input-icon"></i>
-            <input 
-              type="email" 
-              id="email" 
-              class="form-input" 
-              placeholder="seu.email@exemplo.com" 
-              required
-            >
-          </div>
+      <form onsubmit="navigateTo('screen-profile'); return false;">
+        <div class="input-group">
+          <input type="email" placeholder="seu.email@exemplo.com" required />
         </div>
-
-        <!-- Campo de Senha -->
-        <div class="form-group">
-          <label for="senha" class="form-label">SENHA</label>
-          <div class="input-wrapper">
-            <i data-lucide="lock" class="input-icon"></i>
-            <input 
-              type="password" 
-              id="senha" 
-              class="form-input" 
-              placeholder="••••••••" 
-              required
-            >
-            <button type="button" class="toggle-password" id="togglePasswordBtn" aria-label="Mostrar/ocultar senha">
-              <i data-lucide="eye" id="eyeIcon"></i>
-            </button>
-          </div>
+        <div class="input-group">
+          <input type="password" placeholder="••••••••" required />
         </div>
-
-        <!-- Botão de Envio -->
-        <button type="submit" class="btn-primary">Entrar</button>
+        <div class="form-options">
+          <label><input type="checkbox" checked /> Lembrar de mim</label>
+          <a href="#">Esqueceu a senha?</a>
+        </div>
+        <button type="submit" class="btn btn-primary">Entrar</button>
       </form>
 
-      <!-- Link Esqueceu sua senha -->
-      <a href="#" class="forgot-password">Esqueceu sua senha?</a>
-    </main>
+      <div class="divider">ou continue com</div>
+
+      <div class="social-login">
+        <button class="btn-social">Google</button>
+        <button class="btn-social">Apple</button>
+      </div>
+
+      <p class="footer-text">
+        Ainda não tem conta? <a href="#" onclick="navigateTo('screen-signup')">Cadastre-se</a>
+      </p>
+      <a href="#" class="link-secondary" onclick="navigateTo('screen-profile')">Continuar sem conta - explorar primeiro</a>
+    </section>
+
+    <!-- 2. TELA DE CADASTRO -->
+    <section id="screen-signup" class="screen">
+      <div class="logo">🔍 <span>AchaFácil</span></div>
+      <h2>Crie sua conta</h2>
+      <p class="subtitle">Preencha os dados para criar sua conta</p>
+
+      <form onsubmit="navigateTo('screen-onboarding'); return false;">
+        <div class="input-group">
+          <label>Nome completo</label>
+          <input type="text" placeholder="Digite seu nome completo" required />
+        </div>
+        <div class="input-group">
+          <label>Email</label>
+          <input type="email" placeholder="seuemail@email.com" required />
+        </div>
+        <div class="input-group">
+          <label>Senha</label>
+          <input type="password" placeholder="••••••••" required />
+        </div>
+        <div class="input-group">
+          <label>Confirmar senha</label>
+          <input type="password" placeholder="••••••••" required />
+        </div>
+        <div class="form-options">
+          <label><input type="checkbox" required /> Aceito os termos</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+      </form>
+
+      <div class="divider">ou continue com</div>
+
+      <div class="social-login">
+        <button class="btn-social">Google</button>
+        <button class="btn-social">Apple</button>
+      </div>
+
+      <p class="footer-text">
+        Já tem conta? <a href="#" onclick="navigateTo('screen-login')">Entrar</a>
+      </p>
+    </section>
+
+    <!-- 3. TELA DE ONBOARDING / INTERESSES -->
+    <section id="screen-onboarding" class="screen">
+      <div class="header">
+        <div class="logo">🔍 <span>AchaFácil</span></div>
+        <div class="progress-bar"><div class="progress" style="width: 33%;"></div></div>
+        <small>1 de 3</small>
+      </div>
+
+      <h2>O que você gosta?</h2>
+      <p class="subtitle">Selecione seus interesses • o que você gosta de comer e o que você está procurando</p>
+
+      <h3>🍴 O que você gosta de comer</h3>
+      <div class="chips-group">
+        <button class="chip selected" onclick="toggleChip(this)">🍕 pizza ✓</button>
+        <button class="chip" onclick="toggleChip(this)">🍔 hamburguer</button>
+        <button class="chip" onclick="toggleChip(this)">🍣 japonesa</button>
+      </div>
+
+      <h3>🔍 O que você está procurando</h3>
+      <div class="grid-options">
+        <button class="card-option" onclick="toggleChip(this)">🏋️<br>academia</button>
+        <button class="card-option" onclick="toggleChip(this)">✂️<br>barbearia</button>
+        <button class="card-option" onclick="toggleChip(this)">🍽️<br>restaurante</button>
+        <button class="card-option" onclick="toggleChip(this)">🐾<br>pet shop</button>
+        <button class="card-option" onclick="toggleChip(this)">➕<br>farmácia</button>
+        <button class="card-option" onclick="toggleChip(this)">🛠️<br>mecânico</button>
+      </div>
+
+      <button class="btn btn-teal" onclick="navigateTo('screen-profile')">Continuar</button>
+      <a href="#" class="link-secondary center" onclick="navigateTo('screen-profile')">Pular por agora</a>
+    </section>
+
+    <!-- 4. TELA DE PERFIL DO USUÁRIO -->
+    <section id="screen-profile" class="screen">
+      <div class="logo">🍃 <span>AchaFácil</span></div>
+      
+      <div class="profile-header">
+        <div class="avatar">🦫</div>
+        <h2>Ana Silva</h2>
+        <p class="location">📍 Franca • SP</p>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-card">⭐ <strong>4.8</strong><br><small>Avaliações</small></div>
+        <div class="stat-card">🔖 <strong>24</strong><br><small>Salvos</small></div>
+        <div class="stat-card">💵 <strong>R$320</strong><br><small>Economizados</small></div>
+      </div>
+
+      <ul class="menu-list">
+        <li><span>❤️ Meus favoritos</span> <span>›</span></li>
+        <li><span>⭐ Avaliações</span> <span>›</span></li>
+        <li><span>⚙️ Configurações</span> <span>›</span></li>
+      </ul>
+
+      <button class="btn btn-primary" onclick="navigateTo('screen-partner')">Seja Parceiro</button>
+    </section>
+
+    <!-- 5. TELA SEJA UM PARCEIRO -->
+    <section id="screen-partner" class="screen">
+      <div class="top-nav">
+        <button class="btn-back" onclick="navigateTo('screen-profile')">❮</button>
+        <div class="logo">📍 <span>AchaFácil</span></div>
+      </div>
+
+      <h2>Seja um Parceiro AchaFácil</h2>
+      <p class="subtitle">Seu negócio visto por milhares em Franca</p>
+
+      <!-- Plano Grátis -->
+      <div class="plan-card">
+        <span class="badge">ATUAL</span>
+        <h3>Grátis</h3>
+        <p class="price">R$0 <span>/mês</span></p>
+        <p>✔️ Aparece na busca</p>
+      </div>
+
+      <!-- Plano Destaque -->
+      <div class="plan-card featured">
+        <span class="badge orange">MAIS POPULAR</span>
+        <h3>Destaque</h3>
+        <p class="price orange-text">R$49 <span>/mês</span></p>
+        <ul>
+          <li>✔️ Selo Parceria</li>
+          <li>✔️ Topo da busca</li>
+          <li>✔️ Foto maior</li>
+          <li>✔️ Destaque no mapa</li>
+        </ul>
+      </div>
+
+      <!-- Plano Premium -->
+      <div class="plan-card">
+        <h3>Premium</h3>
+        <p class="price navy-text">R$99 <span>/mês</span></p>
+        <ul>
+          <li>✔️ Tudo do Destaque</li>
+          <li>✔️ Cupom exclusivo</li>
+          <li>✔️ Botão WhatsApp direto</li>
+          <li>✔️ Estatísticas</li>
+          <li>✔️ Suporte</li>
+        </ul>
+      </div>
+
+      <button class="btn btn-primary">Começar 30 dias grátis</button>
+      <p class="small-text center">Teste grátis por 30 dias - Cancele a qualquer momento</p>
+    </section>
+
   </div>
 
-  <script src="java.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
