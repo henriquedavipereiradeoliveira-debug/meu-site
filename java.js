@@ -1,21 +1,20 @@
-// Função principal para trocar de telas
-function navigateTo(screenId) {
-  // Oculta todas as telas
-  const screens = document.querySelectorAll('.screen');
-  screens.forEach(screen => {
-    screen.classList.remove('active');
-  });
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+  event.preventDefault(); // Evita que a página recarregue ao clicar em entrar
 
-  // Exibe a tela de destino
-  const targetScreen = document.getElementById(screenId);
-  if (targetScreen) {
-    targetScreen.classList.add('active');
-    // Rola para o topo ao trocar de tela
-    window.scrollTo(0, 0);
+  // Captura o que o usuário digitou
+  const emailDigitado = document.getElementById('email').value.trim();
+  const senhaDigitada = document.getElementById('senha').value;
+
+  // Credenciais para acesso à página especial
+  const emailEspecial = "henriquedavipereiradeoliveira@gmail.com";
+  const senhaEspecial = "henrique123@#";
+
+  // Verificação
+  if (emailDigitado === emailEspecial && senhaDigitada === senhaEspecial) {
+    // Redireciona para a página especial
+    window.location.href = "pagina-especial.html";
+  } else {
+    // Redireciona para a página normal
+    window.location.href = "pagina-normal.html";
   }
-}
-
-// Função simples para alternar seleção de interesses/chips
-function toggleChip(element) {
-  element.classList.toggle('selected');
-}
+});
